@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>EmergencyReady - Simulation</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" sizes="512x512" />
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <img src="../img/logo.png" />
+            <h1>EmergencyReady</h1>
+        </header>
+        <main>
+            <section id="select">
+                <h2>Choose a difficulty</h2>
+                <div class="dropdown">
+                    <button class="dropbtn" id="difficultyBtn">Practice</button>
+                    <div class="dropdown-content">
+                        <div id="practice">Practice</div>
+                        <h3>Emergency</h3>
+                        <div id="emergency5s">5s</div>
+                        <div id="emergency10s">10s</div>
+                        <div id="emergency20s">20s</div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn" id="senarioBtn">Connected Senarios</button>
+                    <div class="dropdown-content">
+                        <div id="connected">Connected Senarios</div>
+                        <div id="separated">Separated Senarios</div>
+                    </div>
+                </div>
+                <button id="start">Start</button>
+            </section>
+            <section id="chooseSenarioConnected" class="inactive">
+                <h2>Choose a Senario</h2>
+                <div class="container">
+                    <div id="fireSenarioSelect">Fire Emergency</div>
+                </div>
+            </section>
+            <section id="chooseSenarioSeparated" class="inactive">
+                <h2>Choose a Senario</h2>
+            </section>
+            <section id="fireSenario" class="senario inactive">
+                <div class="points"><span class="pointsCount">0</span>/100 Points<br /><span class="inactive timeTicker">Time Left: <span class="timeLeft">ERROR</span>s</span></div>
+                <div class="textbox">
+                    <div class="beginning bg1">
+                        <h2>Scenario: Community Center Emergency</h1>
+                        <p><strong>Goal:</strong> Get yourself and the people around you to a safe location while making good decisions under pressure.</p>
+                        <button class="start">Start</button>
+                    </div>
+                    <div class="q1 bg1 inactive">
+                        <h2>You're inside a busy community center when the fire alarm suddenly sounds. You don't see any fire.</h2>
+                        <strong>What do you do?</strong>
+                        <div class="answerChoice dangerous">Assume it's a drill and stay where you are</div>
+                        <div class="answerChoice correct">Immediately start following the building's evacuation procedures</div>
+                        <div class="answerChoice wrong">Wait until you see other people leave</div>
+                        <div class="answerChoice dangerous">Go investigate the alarm</div>
+                    </div>
+                    <div class="q2 bg1 inactive">
+                        <h2>You reach a hallway with two exits. One is the normal entrance you came through, while another marked emergency exit is nearby.</h2>
+                        <strong>What should you prioritize?</strong>
+                        <div class="answerChoice wrong">Use whichever exit has the most people</div>
+                        <div class="answerChoice correct">Follow the marked evacuation route and staff instructions</div>
+                        <div class="answerChoice dangerous">Go back to your original location</div>
+                        <div class="answerChoice wrong">Choose the exit that looks shortest</div>
+                    </div>
+                    <div class="q3 bg1 inactive">
+                        <h2>As you approach the hallway, you notice smoke beginning to fill part of it.</h2>
+                        <strong>What do you do?</strong>
+                        <div class="answerChoice correct">Find another safe exit away from the smoke</div>
+                        <div class="answerChoice dangerous">Continue through the smoke</div>
+                        <div class="answerChoice dangerous">Investigate where the smoke is coming from</div>
+                        <div class="answerChoice dangerous">Go back into the building without checking for another route</div>
+                    </div>
+                    <div class="q4 bg1 inactive">
+                        <h2>You find another exit, but a large crowd is moving toward it.</h2>
+                        <strong>What's the best approach?</strong>
+                        <div class="answerChoice wrong">Push through everyone</div>
+                        <div class="answerChoice wrong">Stop directly in the doorway</div>
+                        <div class="answerChoice dangerous">Turn around and go toward the smoke</div>
+                        <div class="answerChoice correct">Stay calm and follow the evacuation flow</div>
+                    </div>
+                    <div class="q5 bg1 inactive">
+                        <h2>Near the exit, you notice someone who is having difficulty moving quickly</h2>
+                        <strong>What should you do?</strong>
+                        <div class="answerChoice dangerous">Go back into the building to find their belongings</div>
+                        <div class="answerChoice wrong">Ignore them completely</div>
+                        <div class="answerChoice correct">Alert staff/emergency personnel and assist only if you can do so safely</div>
+                        <div class="answerChoice dangerous">Carry them without asking</div>
+                    </div>
+                    <div class="q6 bg2 inactive">
+                        <h2>You successfully exit the building<br />You notice some people standing directly next to the entrance watching what happens.</h2>
+                        <strong>Where should you go?</strong>
+                        <div class="answerChoice wrong">Stay beside the building</div>
+                        <div class="answerChoice correct">Move to the designated assembly area or another safe location away from the building</div>
+                        <div class="answerChoice dangerous">Go back inside</div>
+                        <div class="answerChoice dangerous">Stand in the path of emergency vehicles</div>
+                    </div>
+                    <div class="q7 bg2 inactive">
+                        <h2>Firefighters and other emergency responders arrive. A crowd begins moving toward them to ask questions.</h2>
+                        <strong>What should you do?</strong>
+                        <div class="answerChoice wrong">Move toward the responders</div>
+                        <div class="answerChoice wrong">Try to tell firefighters what you think caused the emergency</div>
+                        <div class="answerChoice correct">Keep clear and follow instructions from emergency personnel</div>
+                        <div class="answerChoice wrong">Block the road so people can see</div>
+                    </div>
+                    <div class="q8 bg2 inactive">
+                        <h2>Someone nearby says: "They said everyone can go back inside!" You haven't heard that from officials.</h2>
+                        <strong>What should you do?</strong>
+                        <div class="answerChoice correct">Wait for instructions from authorized officials</div>
+                        <div class="answerChoice wrong">Post the information online</div>
+                        <div class="answerChoice dangerous">Go inside with them</div>
+                        <div class="answerChoice dangerous">Believe them immediately</div>
+                    </div>
+                    <div class="q9 bg2 inactive">
+                        <h2>You realize your friend isn't at the assembly area.</h2>
+                        <strong>What's the safest choice?</strong>
+                        <div class="answerChoice dangerous">Go back inside to find them</div>
+                        <div class="answerChoice correct">Tell staff or emergency personnel that they're missing</div>
+                        <div class="answerChoice dangerous">Search the building yourself</div>
+                        <div class="answerChoice wrong">Assume they're fine</div>
+                    </div>
+                    <div class="q10 bg2 inactive">
+                        <h2>An emergency official asks everyone to remain in the assembly area while the building is checked.</h2>
+                        <strong>What do you do?</strong>
+                        <div class="answerChoice wrong">Leave immediately</div>
+                        <div class="answerChoice dangerous">Return to the building</div>
+                        <div class="answerChoice dangerous">Follow rumors from other people</div>
+                        <div class="answerChoice correct">Follow the instruction and stay in the designated safe area</div>
+                    </div>
+                    <div class="q11 bg3 inactive">
+                        <h2>You receive an official severe-weather alert on your phone.</h2>
+                        <strong>What should you do?</strong>
+                        <div class="answerChoice dangerous">Ignore it because you're already outside</div>
+                        <div class="answerChoice correct">Follow official instructions about where to shelter</div>
+                        <div class="answerChoice dangerous">Stand outside and watch the storm</div>
+                        <div class="answerChoice wrong">Leave without telling anyone</div>
+                    </div>
+                    <div class="q12 bg3 inactive">
+                        <h2>Officials direct everyone toward a nearby sturdy building.</h2>
+                        <strong>What should you do?</strong>
+                        <div class="answerChoice correct">Follow the official evacuation/shelter instructions</div>
+                        <div class="answerChoice dangerous">Hide under a tree</div>
+                        <div class="answerChoice dangerous">Stay in an open field</div>
+                        <div class="answerChoice dangerous">Separate from the group</div>
+                    </div>
+                    <div class="q13 bg3 inactive">
+                        <h2>Inside the shelter, the lights suddenly go out.</h2>
+                        <strong>What's your priority?</strong>
+                        <div class="answerChoice dangerous">Run outside immediately</div>
+                        <div class="answerChoice wrong">Use your phone flashlight while running around</div>
+                        <div class="answerChoice correct">Stay calm, avoid hazards, and follow staff instructions</div>
+                        <div class="answerChoice wrong">Open every door to see what's happening</div>
+                    </div>
+                    <div class="q14 bg4 inactive">
+                        <h2>A staff member announces that everyone should remain in the designated shelter area. Someone tells you that you should leave because "it's probably safe now."</h2>
+                        <strong>What do you do?</strong>
+                        <div class="answerChoice dangerous">Go outside to check</div>
+                        <div class="answerChoice dangerous">Decide based on what social media says</div>
+                        <div class="answerChoice dangerous">Leave with them</div>
+                        <div class="answerChoice correct">Follow the official announcement</div>
+                    </div>
+                    <div class="q15 bg4 inactive">
+                        <h2>Your phone has 5% battery remaining.</h2>
+                        <strong>What's the smartest approach?</strong>
+                        <div class="answerChoice correct">Preserve battery for important communication and emergency information</div>
+                        <div class="answerChoice wrong">Turn your phone off permanently</div>
+                        <div class="answerChoice wrong">Spend the remaining battery scrolling social media</div>
+                        <div class="answerChoice dangerous">Give your phone to someone you don't know</div>
+                    </div>
+                    <div class="q16 bg4 inactive">
+                        <h2>Someone nearby says they aren't feeling well.</h2>
+                        <strong>What should you do?</strong>
+                        <div class="answerChoice correct">Notify staff or emergency personnel</div>
+                        <div class="answerChoice wrong">Ignore them</div>
+                        <div class="answerChoice dangerous">Give them random medication</div>
+                        <div class="answerChoice dangerous">Tell them to leave the shelter alone</div>
+                    </div>
+                    <div class="q17 bg4 inactive">
+                        <h2>Emergency personnel announce that the immediate danger has passed, but they tell everyone to remain where they are until further notice.</h2>
+                        <strong>What do you do?</strong>
+                        <div class="answerChoice dangerous">Go back to the original building</div>
+                        <div class="answerChoice dangerous">Leave immediately</div>
+                        <div class="answerChoice correct">Continue following their instructions</div>
+                        <div class="answerChoice wrong">Assume the emergency is completely over</div>
+                    </div>
+                    <div class="q18 bg4 inactive">
+                        <h2>You want to know what is happening.</h2>
+                        <strong>Which source should you trust most?</strong>
+                        <div class="answerChoice wrong">A random social-media post</div>
+                        <div class="answerChoice wrong">Someone claiming to know what happened</div>
+                        <div class="answerChoice correct">Official emergency personnel and verified alerts</div>
+                        <div class="answerChoice wrong">A group chat</div>
+                    </div>
+                    <div class="q19 bg4 inactive">
+                        <h2>Officials announce that people may leave the shelter.</h2>
+                        <strong>Before leaving, what should you do?</strong>
+                        <div class="answerChoice dangerous">Follow a stranger who says they know a shortcut</div>
+                        <div class="answerChoice wrong">Leave immediately without checking anything</div>
+                        <div class="answerChoice dangerous">Go back to the original building</div>
+                        <div class="answerChoice correct">Follow the instructions for safely leaving and confirm your transportation/location</div>
+                    </div>
+                    <div class="q20 bg5 inactive">
+                        <h2>You're finally in a safe location. Your friend asks: "What should we do differently next time?"</h2>
+                        <strong>Which is the best takeaway?</strong>
+                        <div class="answerChoice wrong">Emergencies are impossible to prepare for</div>
+                        <div class="answerChoice correct">Stay calm, recognize hazards, follow reliable instructions, and know basic emergency procedures beforehand</div>
+                        <div class="answerChoice wrong">Always handle emergencies yourself</div>
+                        <div class="answerChoice wrong">Only emergency professionals need to prepare</div>
+                    </div>
+                    <div class="results bg5 inactive">
+                        Your final score: <span class="pointsCount"></span>/100
+                        <br />
+                        Your rank: <div class="rank"></div>
+                        <div class="rankTitle"></div>
+                        <p class="rankDesc"></p>
+                    </div>
+                </div>
+                <div class="background"></div>
+            </section>
+            <div id="difficultyDisplay"></div>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>
