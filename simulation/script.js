@@ -1,5 +1,5 @@
 var difficulty;
-var time;
+var time = 5;
 var senario;
 var points = 0;
 var emergency = false;
@@ -13,13 +13,20 @@ $("#practice").click(() => {
 });
 $("#emergency5s").click(() => {
     document.querySelector("#difficultyBtn").innerHTML = "Emergency - 5s";
+    time = 5;
 });
 $("#emergency10s").click(() => {
     document.querySelector("#difficultyBtn").innerHTML = "Emergency - 10s";
+    time = 5;
 });
 $("#emergency20s").click(() => {
     document.querySelector("#difficultyBtn").innerHTML = "Emergency - 20s";
+    time = 5;
 });
+$("#emergencyCustom").click(() => {
+    document.querySelector("#difficultyBtn").innerHTML = `Emergency ${document.querySelector("#secondsCustom").value}s`;
+    time = document.querySelector("#secondsCustom").value;
+})
 $("#connected").click(() => {
     document.querySelector("#senarioBtn").innerHTML = "Connected Senarios";
 });
@@ -32,13 +39,6 @@ $("#start").click(() => {
     } else {
         difficulty = "emergency";
         emergency = true;
-        if (document.querySelector("#difficultyBtn").innerHTML[12] === "5") {
-            time = 5;
-        } else if (document.querySelector("#difficultyBtn").innerHTML[12] === "1") {
-            time = 10;
-        } else {
-            time = 20;
-        }
     }
     if (document.querySelector("#senarioBtn").innerHTML === "Connected Senarios") {
         senario = "connected";
@@ -71,23 +71,30 @@ $(".start").click(() => {
         $(".timeTicker").removeClass("inactive");
         timer = time;
         $(".timeLeft").html(timer);
+        setTimeout(() => {
+            setInterval(() => {
+                if (!paused) {
+                    if (timer <= 0) {
+                        if (!finished) {
+                            points -= 2;
+                            timesUp = true;
+                            $(".pointsCount").html(points);
+                        }
+                    }
+                }
+            }, 1000);
+        }, (time - Math.trunc(time) === 0) ? (999) : (1000 * (time - Math.trunc(time)) - 1))
         setInterval(() => {
             if (!paused) {
-                timer--;
-                if (timer < 0) {
-                    if (!finished) {
-                        points -= 2;
-                        timesUp = true;
-                        $(".pointsCount").html(points);
-                    }
-                } else {
-                    $(".timeLeft").html(timer);
-                }
+                timer -= 0.01;
+                $(".timeLeft").html(timer.toFixed(2));
             }
-        }, 1000);
+        }, 10);
         $(".answerChoice").click(() => {
-            timer = time;
-            $(".timeLeft").html(timer);
+            setTimeout(() => {
+                timer = time;
+                $(".timeLeft").html(timer);
+            }, 3000)
         });
     }
 });
