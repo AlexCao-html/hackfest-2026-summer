@@ -5,7 +5,7 @@
     font-family: Lato;
 }
 body {
-    height: 300vh;
+    height: 400vh;
 }
 .background1 {
     z-index: -999;
@@ -76,7 +76,7 @@ h1 {
     text-align: center;
     background-color: #00000080;
 }
-#link {
+#kit {
     padding: 5vmin;
     position: fixed;
     top: calc(-75vh - 5vmin);
@@ -86,16 +86,26 @@ h1 {
     text-align: center;
     background-color: #00000080;
 }
+#link {
+    padding: 5vmin;
+    position: fixed;
+    top: calc(25vh - 5vmin);
+    left: calc(130vw - 5vmin);
+    height: 60vh;
+    width: 40vw;
+    text-align: center;
+    background-color: #00000080;
+}
 h2 {
     color: #ffffff;
 }
-p {
+p, ul {
     margin-top: 5vh;
-    color: #ffffff;
 }
-p {
+p, li {
     font-size: 14px;
     text-align: left;
+    color: #ffffff;
 }
 img {
     color: #ffffff;
@@ -105,7 +115,7 @@ img {
     margin: 0 auto;
 }
 @media screen and (max-width: 800px) {
-    p {
+    p, li {
         font-size: 12px;
     }
 }

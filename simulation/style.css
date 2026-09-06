@@ -4,6 +4,9 @@
     padding: 0;
     font-family: Lato;
 }
+li {
+    text-align: left;
+}
 header {
     width: 100vw;
     height: 3rem;
@@ -111,8 +114,6 @@ h1 {
 .container > div {
     width: 40vw;
     height: 40vw;
-}
-#fireSenarioSelect {
     box-sizing: border-box;
     color: #ffffff;
     text-align: center;
@@ -120,14 +121,27 @@ h1 {
     font-size: 2rem;
     background-size: cover;
     background-position: center;
-    background-image: url("img/fire/1.jpg");
     cursor: pointer;
 }
-#fireSenarioSelect:hover {
+.container > div:hover {
     filter: brightness(0.8);
 }
-#fireSenarioSelect:active {
+.container > div:active {
     filter: brightness(0.6);
+}
+.container > div::before {
+    content: "";
+    width: 40vw;
+    height: 40vw;
+}
+#fireSenarioSelect {
+    background-image: url("img/fire/1.jpg");
+}
+#floodSenarioSelect {
+    background-image: url("img/flood/1.jpg");
+}
+#separated1SenarioSelect {
+    background-image: url("img/separated/1.jpg");
 }
 #select h2, #chooseSenarioConnected h2, #chooseSenarioSeparated h2 {
     text-align: center;
@@ -170,8 +184,23 @@ h1 {
 #fireSenario .textbox:has(.bg4:not(.inactive)) + .background {
     background-image: url("img/fire/4.jpg");
 }
-#fireSenario .textbox:has(.bg5:not(.inactive)) + .background {
-    background-image: url("img/fire/5.jpg");
+.textbox:has(.bge:not(.inactive)) + .background {
+    background-image: url("img/end.jpg");
+}
+#floodSenario .textbox:has(.bg1:not(.inactive)) + .background {
+    background-image: url("img/flood/1.jpg");
+}
+#floodSenario .textbox:has(.bg2:not(.inactive)) + .background {
+    background-image: url("img/flood/2.jpg");
+}
+#floodSenario .textbox:has(.bg3:not(.inactive)) + .background {
+    background-image: url("img/flood/3.jpg");
+}
+#floodSenario .textbox:has(.bg4:not(.inactive)) + .background {
+    background-image: url("img/flood/4.jpg");
+}
+#separatedSenario1 .background {
+    background-image: url("img/separated/1.jpg");
 }
 .start {
     margin-top: 5vh;
@@ -250,4 +279,19 @@ h1 {
     color: #FFD700;
     font-family: "Valley Sans";
     font-size: 1.5rem;
+}
+.correct.showColor {
+    background-color: #bfffbf80;
+}
+.wrong.showColor {
+    background-color: #ffff8080;
+}
+.dangerous.showColor {
+    background-color: #ffbfbf80;
+}
+.results > a > img {
+    display: block;
+    width: 20vw;
+    margin: 0 auto;
+    filter: invert(1);
 }
