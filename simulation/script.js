@@ -7,6 +7,7 @@ var timer;
 var timesUp = false;
 var finished = false;
 var paused = false;
+var audio = new Audio("sfx/correct.mp3");
 $("#practice").click(() => {
     document.querySelector("#difficultyBtn").innerHTML = "Practice";
 });
@@ -112,6 +113,7 @@ $(".answerChoice.dangerous").click(() => {
     }
 });
 $(".answerChoice.correct").click(() => {
+    audio.play();
     if (!paused) {
         if (!timesUp) {
             points += 5;
