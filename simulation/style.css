@@ -15,10 +15,14 @@ header {
     background-color: #00000080;
     z-index: 1000;
     backdrop-filter: blur(5px);
+    display: grid;
+    grid-template-columns: 5rem 1fr 5rem;
 }
 header img {
     height: 3rem;
-    float: left;
+}
+#invert {
+    filter: invert(100%);
 }
 h1 {
     font-family: 'Crafty Girls';
@@ -288,12 +292,6 @@ h1 {
 }
 .dangerous.showColor {
     background-color: #ffbfbf80;
-}
-.results > a > img {
-    display: block;
-    width: 20vw;
-    margin: 0 auto;
-    filter: invert(1);
 }
 #secondsCustom {
     width: 3em;

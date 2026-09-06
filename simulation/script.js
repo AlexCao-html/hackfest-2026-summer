@@ -83,7 +83,7 @@ $(".start").click(() => {
                     }
                 }
             }, 1000);
-        }, (time - Math.trunc(time) === 0) ? (999) : (1000 * (time - Math.trunc(time)) - 1))
+        }, (time - Math.trunc(time) === 0) ? (990) : (1000 * (time - Math.trunc(time)) - 10))
         setInterval(() => {
             if (!paused) {
                 timer -= 0.01;
@@ -134,7 +134,27 @@ $("#fireSenario .q19 .answerChoice").click(() => {
         finished = true;
     }
 })
+$("#floodSenario .q19 .answerChoice").click(() => {
+    if (!paused) {
+        $(".timeTicker").addClass("inactive");
+        finished = true;
+    }
+})
+$("#separatedSenario1 .q20 .answerChoice").click(() => {
+    if (!paused) {
+        $(".timeTicker").addClass("inactive");
+        finished = true;
+    }
+})
 $("#fireSenario .q20 .answerChoice").click(() => {
+    if (!paused) {
+        if (timesUp) {
+            points += 5;
+            $(".pointsCount").html(points);
+        }
+    }
+})
+$("#floodSenario .q20 .answerChoice").click(() => {
     if (!paused) {
         if (timesUp) {
             points += 5;
